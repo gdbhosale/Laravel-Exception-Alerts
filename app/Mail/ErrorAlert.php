@@ -30,7 +30,7 @@ class ErrorAlert extends Mailable
      */
     public function build()
     {
-        return $this->from('system@example.com', 'Error Alert')
+        return $this->from('system@example.com', 'System')->subject("Error Alert on Server")
                 ->view('emails.error_alert');
     }
 }
