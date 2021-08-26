@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use App\Jobs\JobDevNotification;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -35,7 +36,19 @@ class Handler extends ExceptionHandler
     public function register()
     {
         $this->reportable(function (Throwable $e) {
-            //
+            // Create Notification Data
+            $exception = [
+                "name" => get_class($e),
+                "message" => $e->getMessage(),
+                "file" => $e->getFile(),
+                "line" => $e->getLine(),
+            ];
+
+            // Create a Job for Notification which will run after 5 seconds.
+            $job = (new JobDevNotification($exception))->delay(5);
+
+            // Dispatch Job and continue
+            dispatch($job);
         });
     }
 }
