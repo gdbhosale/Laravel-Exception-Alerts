@@ -2,4 +2,6 @@
 
 It's very tedious for a developer to check error logs every day and make sure that everything is running fine. But you can reduce this daily overhead by creating simple developer notifications to Admin Mail or Slack for example.
 
+![](https://dwij.net/wp-content/uploads/2021/07/send-email-alert-to-admin-when-error-exceptions-occurs-in-laravel-mail.jpg)
+
 Check complete article on https://dwij.net/send-email-alert-to-admin-when-error-exceptions-occurs-in-laravel/
